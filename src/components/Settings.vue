@@ -9,9 +9,8 @@
           <label for="img_profile" class="edit_img">
             <img :src="getImgUrl(user.img)" alt="user.img" class="profile" />
           </label>
-          <input id="img_profile" type="file" class="hidden_file" v-model:value="img_file">
+          <input id="img_profile" type="file" class="hidden_file" @change="newAvatar">
         </div>
-
       </div>
 
       <div class="d-flex flex-column align-items-center mt-5 menu">
@@ -58,6 +57,10 @@ export default {
     getImgUrl(img) {
       let images = require.context('../../public/', false)
       return images('./' + img)
+    },
+    newAvatar(e) {
+      this.img_file = e.target.files[0];
+      console.log(this.img_file)
     }
   }
 }
