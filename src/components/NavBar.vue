@@ -1,24 +1,46 @@
 <template>
-  <div class="position-fixed w-100 vh-100 d-flex flex-column justify-content-between">
+  <div class="position-fixed w-100 d-flex flex-column justify-content-between">
     <nav class="nav-extended blue darken-1">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo"><img src="../assets/logo_s.png" alt="logo"></a>
       </div>
     </nav>
 
-    <nav class="nav-extended blue darken-1 down-menu">
+    <div class="nav-extended blue darken-1 down-menu">
       <div class="h-100 row nav-wrapper">
-          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+          <router-link
+              tag="a"
+              to="/"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
+          >
             home
-          </a>
-          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+          </router-link>
+
+          <router-link
+              tag="a"
+              to="/search"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
+          >
             search
-          </a>
-          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+          </router-link>
+
+          <router-link
+              tag="a"
+              to="/create-branch"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
+          >
+            add_box
+          </router-link>
+
+          <router-link
+              tag="a"
+              to="/profile/SavaFeeD"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
+          >
             person
-          </a>
+          </router-link>
       </div>
-    </nav>
+    </div>
   </div>
 </template>
 
@@ -36,10 +58,13 @@ a.brand-logo{
 .brand-logo img{
   width: 41px;
 }
-nav.down-menu{
+div.down-menu{
+  width: 100%;
+  position: absolute;
+  top: calc(100vh - 49px);
   height: 50px;
 }
-.vh-100{
-  height: calc(90.7vh - 50px)!important;
+a{
+  color: #fff;
 }
 </style>

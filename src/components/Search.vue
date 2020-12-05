@@ -1,7 +1,10 @@
 <template>
-  <navbar></navbar>
-  <div class="container">
+  <div>
+    <navbar></navbar>
 
+    <div>
+
+    </div>
   </div>
 </template>
 
@@ -9,9 +12,9 @@
 import NavBar from "@/components/NavBar";
 
 export default {
-  name: "ListNews",
+  name: "Search",
   components: {
-    'navbar': NavBar
+    "navbar": NavBar
   }
 }
 </script>
