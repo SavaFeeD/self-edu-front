@@ -1,44 +1,39 @@
 <template>
-  <div>
+  <div class="position-fixed w-100 vh-100 d-flex flex-column justify-content-between">
     <nav class="nav-extended blue darken-1">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo"><img src="../assets/logo_s.png" alt="logo"></a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Authorization</a></li>
-          <li><a href="#">Registration</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">List news</a></li>
-          <li><a href="#">Categorys</a></li>
-          <li><a href="#">Rating</a></li>
-        </ul>
       </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo" ref="nav">
-      <li><a href="#">Authorization</a></li>
-      <li><a href="#">Registration</a></li>
-      <hr />
-      <li><a href="#">Profile</a></li>
-      <hr />
-      <li><a href="#">List news</a></li>
-      <li><a href="#">Categorys</a></li>
-      <li><a href="#">Rating</a></li>
-    </ul>
+    <nav class="nav-extended blue darken-1 down-menu">
+      <div class="h-100 row nav-wrapper">
+          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">home</a>
+          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">search</a>
+          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">person</a>
+      </div>
+    </nav>
   </div>
 </template>
 
 <script>
-import M from 'materialize-css/dist/js/materialize.min'
-
 export default {
-  name: "NavBar",
-  mounted() {
-    M.Sidenav.init(this.$refs.nav, {});
-  }
+  name: "NavBar"
 }
 </script>
 
 <style scoped>
-
+a.brand-logo{
+  display: flex;
+  padding: 7px;
+}
+.brand-logo img{
+  width: 41px;
+}
+nav.down-menu{
+  height: 50px;
+}
+.vh-100{
+  height: calc(90.7vh - 50px)!important;
+}
 </style>
