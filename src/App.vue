@@ -19,4 +19,8 @@ export default {
     height: 100vh !important;
   }
 
+  main{
+    padding-top: 66px;
+  }
+
 </style>
