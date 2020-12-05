@@ -1,5 +1,4 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import AuthPage from '@/components/Auth'
 import ListNews from "@/components/ListNews";
 import Auth from "./components/Auth";
 
@@ -8,11 +7,6 @@ export default createRouter({
     routes: [
         {
             path: '/',
-            name: 'Auth',
-            component: AuthPage
-        },
-        {
-            path: '/news',
             name: 'News',
             component: ListNews
         },
