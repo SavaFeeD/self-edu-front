@@ -24,7 +24,13 @@
               </div>
             </div>
             <div class="d-flex flex-column  col-2">
-              <div class="material-icons">settings</div>
+              <router-link
+                  :to="`/profile/${user.slug}/setting`"
+                  tag="a"
+                  class="material-icons no-decor_a"
+              >
+                settings
+              </router-link>
             </div>
           </div>
 
@@ -52,6 +58,7 @@ export default {
   data: () => ({
     user: {
       login: 'Name',
+      slug: 'SavaFeeD',
       desc: "penis is good",
       img: 'default.jpg',
       sub: 0,
@@ -95,5 +102,9 @@ header label{
 }
 .р{
   color: #ff3d00;
+}
+
+.no-decor_a{
+  text-decoration: none!important;
 }
 </style>
