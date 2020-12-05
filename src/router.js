@@ -8,7 +8,6 @@ import Edit from "@/components/Edit";
 import CreateBranch from "@/components/CreateBranch"
 import Search from "@/components/Search";
 
-
 export default createRouter({
     history: createWebHistory(),
     routes: [
