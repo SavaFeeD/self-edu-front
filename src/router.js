@@ -1,9 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import ListNews from "@/components/ListNews";
-import Auth from "./components/Auth";
+import Auth from "@/components/Auth";
 import Profile from '@/components/Profile'
 import Settings from '@/components/Settings'
 import Edit from "@/components/Edit";
+import CreateBranch from "@/components/CreateBranch"
+import Search from "@/components/Search";
 
 export default createRouter({
     history: createWebHistory(),
@@ -32,6 +34,16 @@ export default createRouter({
             path: '/profile/:slug/edit',
             name: 'Edit',
             component: Edit
+        },
+        {
+            path: '/create-branch',
+            name: 'CreateBranch',
+            component: CreateBranch
+        },
+        {
+            path: '/search',
+            name: 'Search',
+            component: Search
         }
     ]
 })

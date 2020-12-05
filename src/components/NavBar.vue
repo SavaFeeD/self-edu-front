@@ -11,7 +11,7 @@
           <router-link
               tag="a"
               to="/"
-              class="col-4 d-flex material-icons justify-content-center align-items-center h-100"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
           >
             home
           </router-link>
@@ -19,15 +19,23 @@
           <router-link
               tag="a"
               to="/search"
-              class="col-4 d-flex material-icons justify-content-center align-items-center h-100"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
           >
             search
           </router-link>
 
           <router-link
               tag="a"
+              to="/create-branch"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
+          >
+            add_box
+          </router-link>
+
+          <router-link
+              tag="a"
               to="/profile/SavaFeeD"
-              class="col-4 d-flex material-icons justify-content-center align-items-center h-100"
+              class="col-3 d-flex material-icons justify-content-center align-items-center h-100"
           >
             person
           </router-link>
