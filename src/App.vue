@@ -13,8 +13,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~materialize-css/dist/css/materialize.min.css";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+  .h-100 {
+    height: 100vh !important;
+  }
+
 </style>
