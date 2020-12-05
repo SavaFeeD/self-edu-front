@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import AuthPage from '@/components/Auth'
 import ListNews from "@/components/ListNews";
+import Auth from "./components/Auth";
 
 export default createRouter({
     history: createWebHistory(),
@@ -14,6 +15,11 @@ export default createRouter({
             path: '/news',
             name: 'News',
             component: ListNews
+        },
+        {
+            path: '/auth',
+            name: 'Auth',
+            component: Auth
         }
     ]
 })
