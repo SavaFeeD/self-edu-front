@@ -1,5 +1,5 @@
 <template>
-  <section class="h-100 d-flex align-items-center">
+  <section class="vh-100 d-flex align-items-center">
     <div class="container layout">
       <form method="POST" class="card">
         <div class="card-content">

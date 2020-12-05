@@ -8,9 +8,15 @@
 
     <nav class="nav-extended blue darken-1 down-menu">
       <div class="h-100 row nav-wrapper">
-          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">home</a>
-          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">search</a>
-          <a href="#" class="col-4 material-icons d-flex justify-content-center align-items-center h-100">person</a>
+          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+            home
+          </a>
+          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+            search
+          </a>
+          <a href="#" class="col-4 d-flex material-icons justify-content-center align-items-center h-100">
+            person
+          </a>
       </div>
     </nav>
   </div>
