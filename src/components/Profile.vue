@@ -5,7 +5,7 @@
     <header>
       <div class="d-flex">
 
-        <div class="">
+        <div>
           <div>
             <img :src="getImgUrl(user.img)" :alt="user.img" class="profile">
           </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="d-flex flex-column  col-2">
               <router-link
-                  :to="`/profile/${user.slug}/setting`"
+                  :to="`/profile/${user.slug}/settings`"
                   tag="a"
                   class="material-icons no-decor_a"
               >
