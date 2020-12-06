@@ -42,16 +42,22 @@
         </div>
       </div>
     </header>
+
+    <div class="branch-container">
+      <branch v-for="b in user.branches" :key="b.id" :branch="b"></branch>
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar";
+import Branch from "@/components/Branch";
 
 export default {
   name: "Profile",
   components: {
-    'navbar': NavBar
+    'navbar': NavBar,
+    'branch': Branch
   },
   data: () => ({
     user: {
@@ -69,6 +75,7 @@ export default {
         followers: 0,
         following: 0
       },
+      branches: []
     },
     user_auth_id: null, // ID - Авторизированного пользователя,
     user_profile: null,
@@ -78,7 +85,7 @@ export default {
     await this.getUserProfile();
     await this.getAuthUser();
     this.user = this.$store.getters.getProfile;
-    console.log(this.user)
+    console.log(this.user.branches)
   },
   methods: {
     getImgUrl(img) {
@@ -103,7 +110,7 @@ export default {
           'Authorization': `Bearer ${this.$store.getters.getToken}`
         },
       });
-      const profile = await user.json()
+      const profile = await user.json();
       this.$store.commit('setProfile', profile)
     },
   }
@@ -131,5 +138,11 @@ header label{
 
 .no-decor_a{
   text-decoration: none!important;
+}
+
+.branch-container{
+  padding: 20px 0;
+  margin-top: 10px;
+  border-top: solid 1px #e2e2e2;
 }
 </style>
