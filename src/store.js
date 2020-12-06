@@ -20,6 +20,10 @@ export default createStore({
         },
         setCategory(state, category){
             state.categories.push(category)
+        },
+        setToken(state, token){
+            state.token = token;
+            localStorage.setItem('token', JSON.stringify(state.token));
         }
     },
     actions: {
@@ -61,6 +65,9 @@ export default createStore({
         },
         getCat: state => {
             return state.categories
+        },
+        getToken: state => {
+            return JSON.parse(state.token);
         }
     }
 })
