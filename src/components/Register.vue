@@ -177,7 +177,9 @@
                             user_id: this.$store.getters.getUserId,
                             favorites: this.favorites
                         })
-                    }).then(res => {
+                    })
+                        .then(res => res.json())
+                        .then(res => {
                         console.log(res);
                     });
                     fetch('http://u96872.test-handyhost.ru/self-edu-backend/public/api/login', {

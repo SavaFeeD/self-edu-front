@@ -17,16 +17,20 @@
         <router-link
           tag="a"
           :to="`/profile/${user.slug}/edit`"
+          class="mt-3"
         >
           Редактировать профиль
         </router-link>
         <router-link
             tag="a"
             :to="`/profile/${user.slug}/delete`"
-            class="red-text text-darken-4"
+            class="red-text text-darken-4 mt-3"
         >
           Удалить профиль
         </router-link>
+        <a class="red-text text-darken-4 mt-3" @click="logout">
+          Выйти
+        </a>
 
       </div>
 
@@ -62,6 +66,28 @@ export default {
     newAvatar(e) {
       this.img_file = e.target.files[0];
       console.log(this.img_file)
+    },
+    logout(){
+      // const pm = this;
+      console.log(this.$store.getters.getToken);
+      fetch('http://u96872.test-handyhost.ru/self-edu-backend/public/api/logout', {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.$store.getters.getToken}`
+        },
+      }).then(res => {
+        console.log(res);
+        if(res.status === 204){
+            this.$store.commit('deleteToken');
+            this.$router.push('/auth');
+        }else {
+          return res.json();
+        }
+      })
+        .then(res => {
+          console.log(res);
+         });
     }
   }
 }

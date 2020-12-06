@@ -28,17 +28,17 @@ export default createRouter({
             component: Register
         },
         {
-            path: '/profile/:slug',
+            path: '/profile/:id',
             name: 'Profile',
             component: Profile
         },
         {
-            path: '/profile/:slug/settings',
+            path: '/profile/:id/settings',
             name: 'Settings',
             component: Settings
         },
         {
-            path: '/profile/:slug/edit',
+            path: '/profile/:id/edit',
             name: 'Edit',
             component: Edit
         },

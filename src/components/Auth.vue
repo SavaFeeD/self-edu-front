@@ -73,7 +73,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        transform: translateY(-100px);
+        transform: translateY(-50px);
         position: relative;
     }
     .card {

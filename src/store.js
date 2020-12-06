@@ -2,12 +2,13 @@ import {createStore} from "vuex";
 
 export default createStore({
     state: () => ({
-        user_token: JSON.parse(localStorage.getItem('token')) || 'SuNJSJBoDzZDTwe1mZYDi753LSVSzZ3rBCISdXpSgZX2MD6PPhDRYbY77GtKwprA7G3V6w',
+        user_token: JSON.parse(localStorage.getItem('token')) || null,
         user_id: null,
         roles: [],
         errors: [],
         category: [],
-        categories: []
+        categories: [],
+        profile: {},
     }),
     mutations: {
         createUser(state, user){
@@ -23,7 +24,15 @@ export default createStore({
             state.categories.push(category)
         },
         setToken(state, token){
+            state.user_token = token;
             localStorage.setItem('token', JSON.stringify(token));
+        },
+        deleteToken(state){
+            localStorage.removeItem('token');
+            state.user_token = null;
+        },
+        setProfile(state, profile){
+            state.profile = profile;
         }
     },
     actions: {
@@ -66,6 +75,7 @@ export default createStore({
         getCat: state => {
             return state.categories;
         },
-        getToken: state => state.user_token
+        getToken: state => state.user_token,
+        getProfile: state => state.profile,
     }
 })
