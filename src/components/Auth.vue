@@ -1,28 +1,30 @@
 <template>
     <section class="vh-100 d-flex align-items-center">
         <div class="container layout">
-            <form method="POST" class="card card-emp">
+            <div class="card card-emp">
                 <div class="card-content card-emp">
                     <span class="card-title text-center">Авторизация</span>
                     <div class="col s12">
                         <div class="input-field col s12">
-                            <input type="email" class="validate" id="email" v-model.trim="user.email">
+                            <input type="email" :class="[errors.email ? 'invalid' : '', 'validate']" id="email" v-model.trim="user.email">
                             <label for="email">Email</label>
-                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                            <span class="helper-text" :data-error="errors.email" data-success="right" v-if="errors.email"></span>
                         </div>
                         <div class="input-field col s12">
-                            <input type="password" class="validate" id="password" v-model.trim="user.password">
+                            <input type="password" :class="[errors.password ? 'invalid' : '', 'validate']" id="password" v-model.trim="user.password">
                             <label for="password">Пароль</label>
-                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                            <span class="helper-text" :data-error="errors.password" data-success="right" v-if="errors.password"></span>
                         </div>
-                      <div class="d-flex justify-content-center mt-3">
-                        <button class="btn-floating btn-large waves-effect waves-light green accent-4" @click="setUser">
-                          <i class="material-icons right">check</i>
-                        </button>
-                      </div>
+                        <span class="helper-text ml-3" data-success="right" v-if="error_403">{{ error_403 }}</span>
+                          <div class="d-flex justify-content-center mt-3">
+                            <button class="btn-floating btn-large waves-effect waves-light green accent-4" @click="setUser">
+                              <i class="material-icons right">check</i>
+                            </button>
+                          </div>
+                        <router-link to="/register" class="ml-3 f-size">Регистрация</router-link>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 </template>
@@ -34,7 +36,9 @@
             user: {
                 email: '',
                 password: ''
-            }
+            },
+            errors: [],
+            error_403: ''
         }),
         methods: {
           setUser(){
@@ -47,15 +51,17 @@
                 email: this.user.email,
                 password: this.user.password
               })
-            }).then(res => {
-              if (res.code === 200) {
-                this.$store.commit('setToken', res.body.token)
-                this.$router.push('/'); // После успешной аутификации делаем редирект на главную
-              }else if(res.code === 403){
-                ////
-              }else if(res.code === 422){
-                /////
-              }
+            })  .then(res => res.json())
+                .then(res => {
+                  if (res.code === 200) {
+                        this.$store.commit('setToken', res.body.token);
+                        this.$router.push('/'); // После успешной аутификации делаем редирект на главную
+                  }else if(res.code === 403){
+                      console.log(res);
+                      this.error_403 = res.message;
+                  }else if(res.code === 422){
+                      this.errors = res.body;
+                  }
             });
           }
         }
@@ -89,6 +95,10 @@
 
     .input-field input {
       width: 100%;
+    }
+
+    .f-size {
+        font-size: 16px;
     }
 
     .active {

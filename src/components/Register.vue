@@ -40,12 +40,13 @@
                             <span class="helper-text" :data-error="errors.password_confirmation" data-success="right"
                                   v-if="errors.password_confirmation">Helper text</span>
                         </div>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center mt-3">
                             <button class="btn-floating btn-large waves-effect waves-light blue-el"
                                     @click="scrollRight">
                                 <i class="material-icons right">arrow_forward</i>
                             </button>
                         </div>
+                        <router-link to="/auth" class="ml-3 f-size">Авторизация</router-link>
                     </div>
                 </div>
             </div>
@@ -188,13 +189,12 @@
                             email: this.user.email,
                             password: this.user.password
                         })
-                    }).then(res => {
+                    })  .then(res => res.json())
+                        .then(res => {
                         if (res.code === 200) {
-                            console.log(res.body.token);
                             this.$store.commit('setToken', res.body.token);
                             this.$router.push('/') // После успешной аутификации делаем редирект на главную
                         }
-                        console.log(res);
                     });
                 } else {
                     this.error_init = 'Выберите темы которые вам интересны';
@@ -214,6 +214,9 @@
         margin-bottom: 40px;
     }
 
+    .f-size {
+         font-size: 16px;
+    }
     .interesting span {
         font-size: 18px !important;
     }

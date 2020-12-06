@@ -23,8 +23,7 @@ export default createStore({
             state.categories.push(category)
         },
         setToken(state, token){
-            state.token = token;
-            localStorage.setItem('token', JSON.stringify(state.token));
+            localStorage.setItem('token', JSON.stringify(token));
         }
     },
     actions: {
