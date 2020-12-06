@@ -141,7 +141,7 @@ header label{
 }
 
 .branch-container{
-  padding: 20px 0;
+  padding: 10px 0;
   margin-top: 10px;
   border-top: solid 1px #e2e2e2;
 }
