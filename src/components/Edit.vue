@@ -9,19 +9,8 @@
           <label for="icon_prefix">Соц. сеть</label>
           <span class="helper-text" data-error="wrong" data-success="right">Введите ссылку</span>
         </div>
-        <div class="input-field">
-          <i class="material-icons prefix">face</i>
-          <input id="icon_prefix_1" type="text" class="validate">
-          <label for="icon_prefix_1">Логин</label>
-        </div>
-        <div class="input-field">
-          <i class="material-icons prefix">description</i>
-          <input id="icon_prefix_2" type="text" class="validate">
-          <label for="icon_prefix_2">Описание</label>
-        </div>
-
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-block w-50" @click.prevent="EditProfile()">Редактировать</button>
+          <button type="submit" class="btn btn-block w-50" @click.prevent="EditProfile">Редактировать</button>
         </div>
       </form>
     </div>
@@ -39,12 +28,23 @@ export default {
   components: {
     'navbar': NavBar
   },
+  data: ()=>({
+    social_city: null
+  }),
   mounted() {
     M.updateTextFields();
   },
   methods: {
     EditProfile() {
 
+    },
+    getSocial(){
+      fetch('http://u96872.test-handyhost.ru/self-edu-backend/public/api/social', {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
     }
   }
 }

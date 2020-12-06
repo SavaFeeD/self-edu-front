@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="d-flex flex-column w-100">
+        <div class="d-flex flex-column w-100 mt-3 mr-3">
 
           <div class="d-flex">
             <div class="d-flex flex-column col-10">
