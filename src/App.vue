@@ -24,4 +24,14 @@ export default {
     padding-top: 66px;
   }
 
+  .у{
+    color: #f9a825;
+  }
+  .п{
+    color: #558b2f;
+  }
+  .р{
+    color: #ff3d00;
+  }
+
 </style>

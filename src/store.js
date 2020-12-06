@@ -2,12 +2,14 @@ import {createStore} from "vuex";
 
 export default createStore({
     state: () => ({
-        user_token: JSON.parse(localStorage.getItem('token')) || 'SuNJSJBoDzZDTwe1mZYDi753LSVSzZ3rBCISdXpSgZX2MD6PPhDRYbY77GtKwprA7G3V6w',
+        user_token: JSON.parse(localStorage.getItem('token')) || '0keHIqsfb92MaMtBH0PFpiRBo4rY23yTqwcfU9S5msLGzDUSgwsKdouPahvHg3ebUhjRGh',
         user_id: null,
         roles: [],
         errors: [],
         category: [],
-        categories: []
+        categories: [],
+        one_branch: {},
+        obj_branch: {},
     }),
     mutations: {
         createUser(state, user){
@@ -20,7 +22,13 @@ export default createStore({
             state.category = category;
         },
         setCategory(state, category){
-            state.categories.push(category)
+            state.categories.push(category);
+        },
+        saveBranch(state, branch) {
+            state.one_branch = branch;
+        },
+        saveListBranch(state, obj_branch) {
+            state.obj_branch = obj_branch
         }
     },
     actions: {
@@ -46,6 +54,28 @@ export default createStore({
             const category = await res.json();
             commit('saveCategory', category);
         },
+        async getOneBranch({commit}, id){
+            const token = this.state.user_token;
+            const res = await fetch(`http://u96872.test-handyhost.ru/self-edu-backend/public/api/branch/${id}`, {
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            const branch = await res.json();
+            commit('saveBranch', branch);
+        },
+        async getListBranch({commit}, page){
+            const token = this.state.user_token;
+            const res = await fetch(`http://u96872.test-handyhost.ru/self-edu-backend/public/api/branch?page="${page}"`, {
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            const obj_branch = await res.json();
+            commit('saveListBranch', obj_branch);
+        },
     },
     getters: {
         getUserId: state => {
@@ -63,6 +93,8 @@ export default createStore({
         getCat: state => {
             return state.categories
         },
-        getToken: state => state.user_token
+        getToken: state => state.user_token,
+        branch: state => state.one_branch,
+        branches: state => state.obj_branch,
     }
 })
