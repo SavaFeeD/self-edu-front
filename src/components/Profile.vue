@@ -129,16 +129,6 @@ header label{
   margin: 0;
 }
 
-.у{
-  color: #f9a825;
-}
-.п{
-  color: #558b2f;
-}
-.р{
-  color: #ff3d00;
-}
-
 .no-decor_a{
   text-decoration: none!important;
 }

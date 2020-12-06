@@ -9,6 +9,8 @@ export default createStore({
         category: [],
         categories: [],
         profile: {},
+        one_branch: {},
+        obj_branch: {},
     }),
     mutations: {
         createUser(state, user){
@@ -33,6 +35,13 @@ export default createStore({
         },
         setProfile(state, profile){
             state.profile = profile;
+            state.categories.push(category);
+        },
+        saveBranch(state, branch) {
+            state.one_branch = branch;
+        },
+        saveListBranch(state, obj_branch) {
+            state.obj_branch = obj_branch
         }
     },
     actions: {
@@ -58,6 +67,28 @@ export default createStore({
             const category = await res.json();
             commit('saveCategory', category);
         },
+        async getOneBranch({commit}, id){
+            const token = this.state.user_token;
+            const res = await fetch(`http://u96872.test-handyhost.ru/self-edu-backend/public/api/branch/${id}`, {
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            const branch = await res.json();
+            commit('saveBranch', branch);
+        },
+        async getListBranch({commit}, page){
+            const token = this.state.user_token;
+            const res = await fetch(`http://u96872.test-handyhost.ru/self-edu-backend/public/api/branch?page="${page}"`, {
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            const obj_branch = await res.json();
+            commit('saveListBranch', obj_branch);
+        },
     },
     getters: {
         getUserId: state => {
@@ -77,5 +108,7 @@ export default createStore({
         },
         getToken: state => state.user_token,
         getProfile: state => state.profile,
+        branch: state => state.one_branch,
+        branches: state => state.obj_branch,
     }
 })
