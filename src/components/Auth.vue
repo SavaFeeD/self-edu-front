@@ -8,12 +8,12 @@
                         <div class="input-field col s12">
                             <input type="email" :class="[errors.email ? 'invalid' : '', 'validate']" id="email" v-model.trim="user.email">
                             <label for="email">Email</label>
-                            <span class="helper-text" :data-error="errors.email" data-success="right" v-if="errors.email"></span>
+                            <span class="helper-text" :data-error="errors.email" v-if="errors.email"></span>
                         </div>
                         <div class="input-field col s12">
                             <input type="password" :class="[errors.password ? 'invalid' : '', 'validate']" id="password" v-model.trim="user.password">
                             <label for="password">Пароль</label>
-                            <span class="helper-text" :data-error="errors.password" data-success="right" v-if="errors.password"></span>
+                            <span class="helper-text" :data-error="errors.password" v-if="errors.password"></span>
                         </div>
                         <span class="helper-text ml-3" data-success="right" v-if="error_403">{{ error_403 }}</span>
                           <div class="d-flex justify-content-center mt-3">

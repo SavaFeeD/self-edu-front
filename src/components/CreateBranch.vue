@@ -99,4 +99,13 @@ label{
   max-width: 200px;
   z-index: -1!important;
 }
+.input-field{
+  width: 89%!important;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 </style>

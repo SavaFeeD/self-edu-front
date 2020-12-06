@@ -35,7 +35,6 @@ export default createStore({
         },
         setProfile(state, profile){
             state.profile = profile;
-            state.categories.push(category);
         },
         saveBranch(state, branch) {
             state.one_branch = branch;

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap mt-3">
     <div class="col s12 d-flex">
         <div class="left-bar blue darken-4">
           <div class="material-icons text-white  d-flex w-100 justify-content-center align-items-center">arrow_drop_up</div>

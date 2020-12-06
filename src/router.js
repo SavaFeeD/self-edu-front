@@ -7,6 +7,7 @@ import Settings from '@/components/Settings'
 import Edit from "@/components/Edit";
 import CreateBranch from "@/components/CreateBranch"
 import Search from "@/components/Search";
+import BranchMore from "@/components/BranchMore"
 
 export default createRouter({
     history: createWebHistory(),
@@ -51,6 +52,11 @@ export default createRouter({
             path: '/search',
             name: 'Search',
             component: Search
+        },
+        {
+            path: '/branch/:id',
+            name: 'BranchMore',
+            component: BranchMore
         }
     ]
 })
