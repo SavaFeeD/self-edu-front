@@ -2,6 +2,7 @@ import {createStore} from "vuex";
 
 export default createStore({
     state: () => ({
+        user_token: JSON.parse(localStorage.getItem('token')) || 'SuNJSJBoDzZDTwe1mZYDi753LSVSzZ3rBCISdXpSgZX2MD6PPhDRYbY77GtKwprA7G3V6w',
         user_id: null,
         roles: [],
         errors: [],
@@ -48,7 +49,7 @@ export default createStore({
             const res = await fetch('http://u96872.test-handyhost.ru/self-edu-backend/public/api/category');
             const category = await res.json();
             commit('saveCategory', category);
-        }
+        },
     },
     getters: {
         getUserId: state => {
@@ -64,10 +65,8 @@ export default createStore({
             return state.category;
         },
         getCat: state => {
-            return state.categories
+            return state.categories;
         },
-        getToken: state => {
-            return JSON.parse(state.token);
-        }
+        getToken: state => state.user_token
     }
 })
