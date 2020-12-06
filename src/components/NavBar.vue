@@ -1,12 +1,10 @@
 <template>
-
     <div class="position-fixed w-100 d-flex flex-column justify-content-between z-index-10000">
       <nav class="nav-extended blue darken-1">
         <div class="nav-wrapper">
           <a href="#" class="brand-logo"><img src="../assets/logo_s.png" alt="logo"></a>
         </div>
       </nav>
-
       <div class="nav-extended blue darken-1 down-menu">
         <div class="h-100 row nav-wrapper">
           <router-link

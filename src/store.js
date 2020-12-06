@@ -33,7 +33,7 @@ export default createStore({
             localStorage.removeItem('token');
             state.user_token = null;
         },
-        setProfile(state, profile){
+        setProfile(state, profile) {
             state.profile = profile;
         },
         saveBranch(state, branch) {

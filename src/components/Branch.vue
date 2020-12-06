@@ -37,7 +37,6 @@ export default {
   name: "Branch",
   data: () => ({
   }),
-
   props: ['branch'],
   methods: {
     getImgUrl(img) {
